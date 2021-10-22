@@ -1,16 +1,19 @@
-import React from 'react'
-import {View, Text} from 'react-native';
-const FirstName = createContext();
+import React from 'react';
+import { View, Text } from 'react-native';
+
+
+const FirstName = React.createContext({ fname: '' });
 
 function CompA() {
-    return (
-        <View>
-            
-            <FirstName.Provider value = {'Sandeep'}></FirstName.Provider>
-            
-        </View>
-    )
+  return (
+    <View>
+      <FirstName.Provider value={{ fname: 'Sandeep' }}>
+        <CompB />
+      </FirstName.Provider>
+    </View>
+  );
 }
 
-export default CompA
-export {FirstName};
+export { FirstName };
+
+export default CompA;
